@@ -1,21 +1,22 @@
 import random
-import sys
+from sys import exit
+from HangUtil import print_msg
+
 
 class HangSetup:
-	def __init__(self, file, total_words=0, rand_line=0, the_word=""):
+	def __init__(self, file):
 		self.file = file
-		self.total_words = total_words
-		self.rand_line = rand_line
-		self.the_word = the_word
+		self.total_words = 0
+		self.rand_line = 0
+		self.the_word = ""
 
 
 	def open_file(self):
 		try:
 			self.file = open(self.file, 'r')
 		except:
-			print(self.file + " not found... Exiting program")
+			print_msg("Fatal", self.file + " not found... Exiting program")
 			sys.exit()
-			#self.file = open(self.file, 'r+')
 
 	def close_file(self):
 		self.file.close()
@@ -43,9 +44,7 @@ class HangSetup:
 			else:
 				current_line += 1
 		#testing
+		self.the_word = 'ftest'
 
 	def get_word(self):
 		return self.the_word
-
-
-

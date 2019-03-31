@@ -8,13 +8,11 @@ def setup_game(MyFile):
 	MyFile.set_rand_line()
 	MyFile.set_word()
 
-
 def main():
-	MyFile = HangSetup("hangman.txt")
+	MyFile = HangSetup('hangman.txt')
 	setup_game(MyFile)
 	MyGame = HangGame(MyFile.the_word,10)
 	MyGame.init_answer()
-	#print(MyGame.word +" - "+ str(MyGame.max_turns))
 
 	while True:
 		MyGame.display_answer()
